@@ -24,6 +24,19 @@ extension Point: CustomStringConvertible {
     }
 }
 
+// Point Equality and Hashing
+
+extension Point: Equatable {}
+func ==(lhs: Point, rhs: Point) -> Bool {
+    return lhs.x == rhs.x && lhs.y == rhs.y
+}
+
+extension Point: Hashable {
+    var hashValue: Int {
+        return self.description.hashValue
+    }
+}
+
 // Point-Point Arithmetic
 
 func +(lhs: Point, rhs: Point) -> Point {
