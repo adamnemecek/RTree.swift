@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C926855A1C88A576004C1EE1 /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92685591C88A576004C1EE1 /* Geometry.swift */; };
+		C926855C1C88C2B1004C1EE1 /* RTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = C926855B1C88C2B1004C1EE1 /* RTree.swift */; };
 		C9F88DCD1C889F3D0019400F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F88DCC1C889F3D0019400F /* AppDelegate.swift */; };
 		C9F88DCF1C889F3D0019400F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F88DCE1C889F3D0019400F /* ViewController.swift */; };
 		C9F88DD21C889F3D0019400F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9F88DD01C889F3D0019400F /* Main.storyboard */; };
@@ -28,6 +29,7 @@
 
 /* Begin PBXFileReference section */
 		C92685591C88A576004C1EE1 /* Geometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Geometry.swift; path = RTree/Geometry.swift; sourceTree = "<group>"; };
+		C926855B1C88C2B1004C1EE1 /* RTree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RTree.swift; sourceTree = "<group>"; };
 		C9F88DC91C889F3D0019400F /* RTree.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RTree.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9F88DCC1C889F3D0019400F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C9F88DCE1C889F3D0019400F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 			isa = PBXGroup;
 			children = (
 				C92685591C88A576004C1EE1 /* Geometry.swift */,
+				C926855B1C88C2B1004C1EE1 /* RTree.swift */,
 			);
 			name = RTree;
 			sourceTree = "<group>";
@@ -208,6 +211,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C926855C1C88C2B1004C1EE1 /* RTree.swift in Sources */,
 				C9F88DCF1C889F3D0019400F /* ViewController.swift in Sources */,
 				C926855A1C88A576004C1EE1 /* Geometry.swift in Sources */,
 				C9F88DCD1C889F3D0019400F /* AppDelegate.swift in Sources */,
