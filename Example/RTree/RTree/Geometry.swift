@@ -23,3 +23,23 @@ extension Point: CustomStringConvertible {
         return "(\(self.x), \(self.y))"
     }
 }
+
+// Point-Point Arithmetic
+
+func +(lhs: Point, rhs: Point) -> Point {
+    return Point(lhs.x + rhs.x, lhs.y + rhs.y)
+}
+
+func -(lhs: Point, rhs: Point) -> Point {
+    return Point(lhs.x - rhs.x, lhs.y - rhs.y)
+}
+
+// Scalar-Point Arithmetic
+
+func *(lhs: Double, rhs: Point) -> Point {
+    return Point(lhs*rhs.x, lhs*rhs.y)
+}
+
+func *(lhs: Point, rhs: Double) -> Point {
+    return rhs*lhs
+}
