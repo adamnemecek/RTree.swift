@@ -6,7 +6,7 @@
 //  Copyright © 2016 Kai Wells. All rights reserved.
 //
 
-struct Point {
+public struct Point {
     var x: Double
     var y: Double
     
@@ -19,7 +19,7 @@ struct Point {
 }
 
 extension Point: CustomStringConvertible {
-    var description: String {
+    public var description: String {
         return "(\(self.x), \(self.y))"
     }
 }
@@ -27,37 +27,37 @@ extension Point: CustomStringConvertible {
 // Point Equality and Hashing
 
 extension Point: Equatable {}
-func ==(lhs: Point, rhs: Point) -> Bool {
+public func ==(lhs: Point, rhs: Point) -> Bool {
     return lhs.x == rhs.x && lhs.y == rhs.y
 }
 
 extension Point: Hashable {
-    var hashValue: Int {
+    public var hashValue: Int {
         return self.description.hashValue
     }
 }
 
 // Point-Point Arithmetic
 
-func +(lhs: Point, rhs: Point) -> Point {
+public func +(lhs: Point, rhs: Point) -> Point {
     return Point(lhs.x + rhs.x, lhs.y + rhs.y)
 }
 
-func -(lhs: Point, rhs: Point) -> Point {
+public func -(lhs: Point, rhs: Point) -> Point {
     return Point(lhs.x - rhs.x, lhs.y - rhs.y)
 }
 
 // Scalar-Point Arithmetic
 
-func *(lhs: Double, rhs: Point) -> Point {
+public func *(lhs: Double, rhs: Point) -> Point {
     return Point(lhs*rhs.x, lhs*rhs.y)
 }
 
-func *(lhs: Point, rhs: Double) -> Point {
+public func *(lhs: Point, rhs: Double) -> Point {
     return rhs*lhs
 }
 
-struct Size {
+public struct Size {
     var w: Double
     var h: Double
     
@@ -76,17 +76,17 @@ struct Size {
 }
 
 extension Size: CustomStringConvertible {
-    var description: String {
+    public var description: String {
         return "{\(self.w), \(self.h)}"
     }
 }
 
 // Convenience function for rectangles
-func +(lhs: Point, rhs: Size) -> Point {
+internal func +(lhs: Point, rhs: Size) -> Point {
     return lhs + Point(rhs.w, rhs.h)
 }
 
-struct Rectangle {
+public struct Rectangle {
     let origin: Point
     let size: Size
     
@@ -125,18 +125,18 @@ struct Rectangle {
 }
 
 extension Rectangle: CustomStringConvertible {
-    var description: String {
+    public var description: String {
         return "[\(self.origin) \(self.size)]"
     }
 }
 
 extension Rectangle {
-    func contains(p: Point) -> Bool {
+    public func contains(p: Point) -> Bool {
         let d = p - self.origin
         return d.x > 0 && d.x <= self.size.w && d.y > 0 && d.y <= self.size.h
     }
     
-    var corners: [Point] {
+    public var corners: [Point] {
         get {
             let a = self.origin
             let b = self.origin + Point(self.size.w, 0)
@@ -146,7 +146,7 @@ extension Rectangle {
         }
     }
     
-    func intersects(r: Rectangle) -> Bool {
+    public func intersects(r: Rectangle) -> Bool {
         return r.corners
             .map(self.contains)
             .reduce(false) { $0 || $1 }
