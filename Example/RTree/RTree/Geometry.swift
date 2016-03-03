@@ -43,3 +43,31 @@ func *(lhs: Double, rhs: Point) -> Point {
 func *(lhs: Point, rhs: Double) -> Point {
     return rhs*lhs
 }
+
+struct Size {
+    var w: Double
+    var h: Double
+    
+    init(_ w: Double, _ h: Double) {
+        self.w = w
+        self.h = h
+    }
+    
+    var area: Double {
+        get {
+            return self.w*self.h
+        }
+    }
+    
+    static let Zero = Size(0, 0)
+}
+
+extension Size: CustomStringConvertible {
+    var description: String {
+        return "{\(self.w), \(self.h)}"
+    }
+}
+
+func +(lhs: Point, rhs: Size) -> Point {
+    return lhs + Point(rhs.w, rhs.h)
+}
