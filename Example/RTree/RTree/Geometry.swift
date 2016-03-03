@@ -81,6 +81,37 @@ extension Size: CustomStringConvertible {
     }
 }
 
+// Convenience function for rectangles
 func +(lhs: Point, rhs: Size) -> Point {
     return lhs + Point(rhs.w, rhs.h)
+}
+
+struct Rectangle {
+    let origin: Point
+    let size: Size
+    
+    var area: Double {
+        get {
+            return size.w*size.h
+        }
+    }
+    
+    init(origin: Point, size: Size) {
+        self.origin = origin
+        self.size = size
+    }
+    
+    init(_ a: Point, _ b: Point) {
+        let d = b - a
+        self.origin = Point(min(a.x, b.x), min(a.y, b.y))
+        self.size = Size(abs(d.x), abs(d.y))
+    }
+    
+    static let Zero: Rectangle = Rectangle(Point.Zero, Point.Zero)
+}
+
+extension Rectangle: CustomStringConvertible {
+    var description: String {
+        return "[\(self.origin) \(self.size)]"
+    }
 }
