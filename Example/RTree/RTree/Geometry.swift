@@ -151,4 +151,11 @@ extension Rectangle {
             .map(self.contains)
             .reduce(false) { $0 || $1 }
     }
+    
+    public func expandedToBound(p: Point) -> Rectangle {
+        let o = Point(min(self.origin.x, p.x), min(self.origin.y, p.y))
+        let c1 = self.origin + self.size
+        let c2 = Point(max(c1.x, p.x), max(c1.y, p.y))
+        return Rectangle(o, c2)
+    }
 }
