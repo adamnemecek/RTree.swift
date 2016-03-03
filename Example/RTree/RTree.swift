@@ -36,7 +36,7 @@ public struct RTreeLeaf<Value> {
         self._points.append(p)
         self._pointDict[p] = v
         
-        if self._boundingRect.contains(p) {
+        if self._boundingRect.bounds(p) {
             return
         }
         self._boundingRect = self._boundingRect.expandedToBound(p)
@@ -58,8 +58,8 @@ public struct RTreeLeaf<Value> {
         return false
     }
     
-    public func contains(p: Point) -> Bool {
-        return self._boundingRect.contains(p)
+    public func bounds(p: Point) -> Bool {
+        return self._boundingRect.bounds(p)
     }
     
     public mutating func compress() {
