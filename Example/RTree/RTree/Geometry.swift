@@ -107,6 +107,20 @@ struct Rectangle {
         self.size = Size(abs(d.x), abs(d.y))
     }
     
+    init(bounding points: [Point]) {
+        guard points.count > 0 else {
+            self = Rectangle.Zero
+            return
+        }
+        var a = points.first!
+        var b = points.first!
+        for p in points {
+            a.x = min(a.x, p.x); a.y = min(a.y, p.y)
+            b.x = max(b.x, p.x); b.y = max(b.y, p.y)
+        }
+        self = Rectangle(a, b)
+    }
+    
     static let Zero: Rectangle = Rectangle(Point.Zero, Point.Zero)
 }
 
