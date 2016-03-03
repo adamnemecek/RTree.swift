@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C926855A1C88A576004C1EE1 /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92685591C88A576004C1EE1 /* Geometry.swift */; };
 		C9F88DCD1C889F3D0019400F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F88DCC1C889F3D0019400F /* AppDelegate.swift */; };
 		C9F88DCF1C889F3D0019400F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F88DCE1C889F3D0019400F /* ViewController.swift */; };
 		C9F88DD21C889F3D0019400F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9F88DD01C889F3D0019400F /* Main.storyboard */; };
@@ -26,6 +27,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C92685591C88A576004C1EE1 /* Geometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Geometry.swift; path = RTree/Geometry.swift; sourceTree = "<group>"; };
 		C9F88DC91C889F3D0019400F /* RTree.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RTree.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9F88DCC1C889F3D0019400F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C9F88DCE1C889F3D0019400F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +58,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C9709B0B1C88A0400043FC4E /* RTree */ = {
+			isa = PBXGroup;
+			children = (
+				C92685591C88A576004C1EE1 /* Geometry.swift */,
+			);
+			name = RTree;
+			sourceTree = "<group>";
+		};
 		C9F88DC01C889F3D0019400F = {
 			isa = PBXGroup;
 			children = (
@@ -77,6 +87,7 @@
 		C9F88DCB1C889F3D0019400F /* RTree */ = {
 			isa = PBXGroup;
 			children = (
+				C9709B0B1C88A0400043FC4E /* RTree */,
 				C9F88DCC1C889F3D0019400F /* AppDelegate.swift */,
 				C9F88DCE1C889F3D0019400F /* ViewController.swift */,
 				C9F88DD01C889F3D0019400F /* Main.storyboard */,
@@ -198,6 +209,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9F88DCF1C889F3D0019400F /* ViewController.swift in Sources */,
+				C926855A1C88A576004C1EE1 /* Geometry.swift in Sources */,
 				C9F88DCD1C889F3D0019400F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -388,6 +400,7 @@
 				C9F88DE81C889F3D0019400F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C9F88DE91C889F3D0019400F /* Build configuration list for PBXNativeTarget "RTreeTests" */ = {
 			isa = XCConfigurationList;
@@ -396,6 +409,7 @@
 				C9F88DEB1C889F3D0019400F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
