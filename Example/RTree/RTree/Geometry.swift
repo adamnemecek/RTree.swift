@@ -115,3 +115,26 @@ extension Rectangle: CustomStringConvertible {
         return "[\(self.origin) \(self.size)]"
     }
 }
+
+extension Rectangle {
+    func contains(p: Point) -> Bool {
+        let d = p - self.origin
+        return d.x > 0 && d.x <= self.size.w && d.y > 0 && d.y <= self.size.h
+    }
+    
+    var corners: [Point] {
+        get {
+            let a = self.origin
+            let b = self.origin + Point(self.size.w, 0)
+            let c = self.origin + Point(0, self.size.h)
+            let d = self.origin + self.size
+            return [a, b, c, d]
+        }
+    }
+    
+    func intersects(r: Rectangle) -> Bool {
+        return r.corners
+            .map(self.contains)
+            .reduce(false) { $0 || $1 }
+    }
+}
