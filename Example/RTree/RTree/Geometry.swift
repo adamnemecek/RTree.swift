@@ -81,6 +81,11 @@ extension Size: CustomStringConvertible {
     }
 }
 
+extension Size: Equatable {}
+public func ==(lhs: Size, rhs: Size) -> Bool {
+    return lhs.w == rhs.w && lhs.h == rhs.h
+}
+
 // Convenience function for rectangles
 internal func +(lhs: Point, rhs: Size) -> Point {
     return lhs + Point(rhs.w, rhs.h)
@@ -92,7 +97,7 @@ public struct Rectangle {
     
     var area: Double {
         get {
-            return size.w*size.h
+            return size.area
         }
     }
     
@@ -131,11 +136,6 @@ extension Rectangle: CustomStringConvertible {
 }
 
 extension Rectangle {
-    public func contains(p: Point) -> Bool {
-        let d = p - self.origin
-        return d.x > 0 && d.x <= self.size.w && d.y > 0 && d.y <= self.size.h
-    }
-    
     public var corners: [Point] {
         get {
             let a = self.origin
@@ -146,9 +146,14 @@ extension Rectangle {
         }
     }
     
+    public func bounds(p: Point) -> Bool {
+        let d = p - self.origin
+        return d.x >= 0 && d.x <= self.size.w && d.y >= 0 && d.y <= self.size.h
+    }
+    
     public func intersects(r: Rectangle) -> Bool {
         return r.corners
-            .map(self.contains)
+            .map(self.bounds)
             .reduce(false) { $0 || $1 }
     }
     
@@ -158,4 +163,9 @@ extension Rectangle {
         let c2 = Point(max(c1.x, p.x), max(c1.y, p.y))
         return Rectangle(o, c2)
     }
+}
+
+extension Rectangle: Equatable {}
+public func ==(lhs: Rectangle, rhs: Rectangle) -> Bool {
+    return lhs.origin == rhs.origin && lhs.size == rhs.size
 }
