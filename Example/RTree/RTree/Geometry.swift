@@ -7,15 +7,15 @@
 //
 
 public struct Point {
-    var x: Double
-    var y: Double
+    public var x: Double
+    public var y: Double
     
-    init(_ x: Double, _ y: Double) {
+    public init(_ x: Double, _ y: Double) {
         self.x = x
         self.y = y
     }
     
-    static let Zero = Point(0, 0)
+    public static let Zero = Point(0, 0)
 }
 
 extension Point: CustomStringConvertible {
@@ -58,21 +58,21 @@ public func *(lhs: Point, rhs: Double) -> Point {
 }
 
 public struct Size {
-    var w: Double
-    var h: Double
+    public var w: Double
+    public var h: Double
     
-    init(_ w: Double, _ h: Double) {
+    public init(_ w: Double, _ h: Double) {
         self.w = w
         self.h = h
     }
     
-    var area: Double {
+    public var area: Double {
         get {
             return self.w*self.h
         }
     }
     
-    static let Zero = Size(0, 0)
+    public static let Zero = Size(0, 0)
 }
 
 extension Size: CustomStringConvertible {
@@ -92,27 +92,27 @@ internal func +(lhs: Point, rhs: Size) -> Point {
 }
 
 public struct Rectangle {
-    let origin: Point
-    let size: Size
+    public let origin: Point
+    public let size: Size
     
-    var area: Double {
+    public var area: Double {
         get {
             return size.area
         }
     }
     
-    init(origin: Point, size: Size) {
+    public init(origin: Point, size: Size) {
         self.origin = origin
         self.size = size
     }
     
-    init(_ a: Point, _ b: Point) {
+    public init(_ a: Point, _ b: Point) {
         let d = b - a
         self.origin = Point(min(a.x, b.x), min(a.y, b.y))
         self.size = Size(abs(d.x), abs(d.y))
     }
     
-    init(bounding points: [Point]) {
+    public init(bounding points: [Point]) {
         guard points.count > 0 else {
             self = Rectangle.Zero
             return
@@ -126,7 +126,7 @@ public struct Rectangle {
         self = Rectangle(a, b)
     }
     
-    static let Zero: Rectangle = Rectangle(Point.Zero, Point.Zero)
+    public static let Zero: Rectangle = Rectangle(Point.Zero, Point.Zero)
 }
 
 extension Rectangle: CustomStringConvertible {
